@@ -1,0 +1,19 @@
+.todo-form-container .container-fluid {
+    width: 85%;
+
+}
+
+.todo-form-container {
+    margin-top: 50px;
+}
+
+.todo-form-container .add-btn {
+    padding: 8px 30px;
+    background-color: #712cf9 !important;
+    border: none
+}
+
+.todo-form-container input {
+    outline: none !important;
+    box-shadow: none !important;
+}
