@@ -47,7 +47,7 @@ class TodoListCreateView(generics.CreateAPIView):
         if offset != "null" : 
             limit=8    
             offset =int(offset) + 1
-            next_url = f"https://todo-with-react-and-rest.netlify.app/api/todo-list/?limit={limit}&offset={offset}" 
+            next_url = f"https://todo-with-react-and-rest.onrender.com/api/todo-list/?limit={limit}&offset={offset}" 
       
  
         return Response(
@@ -87,7 +87,7 @@ class TodoItemDeleteView(generics.DestroyAPIView):
         if  offset != "null":
             offset =   int(offset) - 1  # Correctly decrement the offset
             limit =  8
-            next_url = f"https://todo-with-react-and-rest.netlify.app/api/todo-list/?limit={limit}&offset={offset}"
+            next_url = f"https://todo-with-react-and-rest.onrender.com/api/todo-list/?limit={limit}&offset={offset}"
  
 
         return Response({'message': 'Item deleted successfully', 'next_url': next_url})
