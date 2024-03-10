@@ -34,6 +34,7 @@ class TodoListCreateView(generics.CreateAPIView):
         if request.data['title'].strip() == "":
             return Response({"message":"title can not be empty"})
         
+        print("data", request.data['title'])
         serializer = self.get_serializer(data=request.data)
       
         serializer.is_valid(raise_exception=True)
@@ -42,9 +43,9 @@ class TodoListCreateView(generics.CreateAPIView):
         # Return the response with the newly created todo item
         headers = self.get_success_headers(serializer.data)
         offset = request.GET.get('offset')
-    
+        print("data_offset", offset)
         next_url= None
-        if offset != "null" : 
+        if offset != "null" and offset is not None: 
             limit=8    
             offset =int(offset) + 1
             next_url = f"https://todo-with-react-and-rest.onrender.com/api/todo-list/?limit={limit}&offset={offset}" 
@@ -84,7 +85,7 @@ class TodoItemDeleteView(generics.DestroyAPIView):
         offset =  request.GET.get('offset')
         print("d_offset", offset)
         next_url= None
-        if  offset != "null":
+        if  offset != "null" and offset is not None:
             offset =   int(offset) - 1  # Correctly decrement the offset
             limit =  8
             next_url = f"https://todo-with-react-and-rest.onrender.com/api/todo-list/?limit={limit}&offset={offset}"
