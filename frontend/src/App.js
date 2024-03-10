@@ -21,7 +21,7 @@ function App() {
 
 
 
-  const fetchTodos = (url = 'http://127.0.0.1:8000/api/todo-list/') => {
+  const fetchTodos = (url = 'https://todo-with-react-and-rest.onrender.com/api/todo-list/') => {
 
 
     axios.get(url)
@@ -69,7 +69,7 @@ function App() {
       }
     }
 
-    axios.post(`http://127.0.0.1:8000/api/todo/create/?offset=${offsetParam}`, { title: newTodo })
+    axios.post(`https://todo-with-react-and-rest.onrender.com/api/todo/create/?offset=${offsetParam}`, { title: newTodo })
       .then((response) => {
         console.log("ress", response.data);
         // setNextPageUrl(response.data.next_url);
@@ -108,7 +108,7 @@ function App() {
 
 
   const handleUpdateTodo = (editedTitle, editedId) => {
-    axios.patch(`http://127.0.0.1:8000/api/todo/${editedId}/update/`, { "title": editedTitle })
+    axios.patch(`https://todo-with-react-and-rest.onrender.com/api/todo/${editedId}/update/`, { "title": editedTitle })
       .then((response) => {
         const updatedTodo = response.data
         console.log("great", updatedTodo)
@@ -123,7 +123,7 @@ function App() {
 
   const handleUpdateStatus = (todoId, completedStatus) => {
     console.log("xavier", completedStatus)
-    axios.patch(`http://127.0.0.1:8000/api/todo/${todoId}/update/`, { "completed": completedStatus })
+    axios.patch(`https://todo-with-react-and-rest.onrender.com/api/todo/${todoId}/update/`, { "completed": completedStatus })
       .then(response => {
         const updatedTodo = response.data
         console.log("og_data", updatedTodo)
@@ -150,7 +150,7 @@ function App() {
     // console.log("off", offset)
 
 
-    axios.delete(`http://127.0.0.1:8000/api/todo/${todo.id}/delete/?offset=${offsetParam}`)
+    axios.delete(`https://todo-with-react-and-rest.onrender.com/api/todo/${todo.id}/delete/?offset=${offsetParam}`)
       .then(response => {
         setTodos(prevTodos => prevTodos.filter(prevTodo => prevTodo.id !== todo.id))
         console.log("next", response.data.next_url)

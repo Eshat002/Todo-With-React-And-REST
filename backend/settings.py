@@ -30,6 +30,8 @@ ALLOWED_HOSTS = ["*"]
 CORS_ALLOWED_ORIGINS = [
    
     "http://localhost:3000",
+    "https://todo-with-react-and-rest.onrender.com",
+    "https://todo-with-react-and-rest.netlify.app/"
     
 ]
 
